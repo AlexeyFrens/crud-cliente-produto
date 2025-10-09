@@ -1,13 +1,84 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
+    
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cadastro de Clientes</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Administrador - Clientes</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <link rel="stylesheet" href="clientes.css">
+  <link rel="stylesheet" href="modal.css">
 </head>
 <body>
 
+  <div class="admin-panel">
+    <h1>Painel Administrador</h1>
+
+    <div class="navigation">
+      <button class="nav-button active">
+        <i class="fas fa-users"></i>
+        Clientes
+      </button>
+      <a href="produtos.html" class="nav-button">
+        <i class="fas fa-box"></i>
+        Produtos
+      </a>
+    </div>
+
+    <div class="clientes-section">
+      <div class="section-header">
+        <h2>Clientes</h2>
+        <button id="btnNovoCliente" class="btn btn-primary">+ Novo Cliente</button>
+      </div>
+
+      <table id="clientesTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>NOME</th>
+            <th>EMAIL</th>
+            <th>TELEFONE</th>
+            <th>ENDEREÇO</th>
+            <th>AÇÕES</th>
+          </tr>
+        </thead>
+        <tbody id="clientesTableBody">
+          <tr class="no-data">
+            <td colspan="6">Nenhum cliente cadastrado</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- MODAL -->
+  <div id="clienteModal" class="modal">
+    <div class="modal-content">
+      <h2 id="modalTitle">Novo Cliente</h2>
+      <form id="clienteForm">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" placeholder="Ex: Angela Santos" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Ex: angela@gmail.com" required>
+
+        <label for="telefone">Telefone</label>
+        <input type="text" id="telefone" placeholder="Ex: (11) 94837-5678">
+
+        <label for="endereco">Endereço</label>
+        <textarea id="endereco" placeholder="Ex: Rua Bras Cardoso 1234"></textarea>
+
+        <div class="modal-actions">
+          <button type="button" id="btnCancel" class="btn btn-secondary">Cancelar</button>
+          <button type="submit" class="btn btn-success">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="clientes.js"></script>
 </body>
 </html>
