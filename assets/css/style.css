@@ -1,7 +1,12 @@
-body { 
+
+* {
+    box-sizing: border-box;
+}
+
+body {
     font-family: sans-serif; 
     background-color: #f4f7f6; 
-    margin: 0; 
+    margin: 0;
 }
 
 .admin-panel { 
@@ -98,12 +103,12 @@ tbody tr:nth-child(even) {
     text-align: center; 
     color: #6c757d; 
     font-style: italic; 
-    padding: 30px; 
+    padding: 30px;
 }
 
 /* Modal */
-.modal { 
-    display: none; 
+.modal {
+    display: none;
     position: fixed; 
     z-index: 1000; 
     left: 0; 

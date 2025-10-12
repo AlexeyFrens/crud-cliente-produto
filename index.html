@@ -9,8 +9,7 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
   />
-  <link rel="stylesheet" href="clientes.css">
-  <link rel="stylesheet" href="modal.css">
+  <link rel="stylesheet" href="assets/css/clientes.css">
 </head>
 <body>
 
@@ -22,7 +21,7 @@
         <i class="fas fa-users"></i>
         Clientes
       </button>
-      <a href="produtos.html" class="nav-button">
+      <a href="assets/html/product.html" class="nav-button">
         <i class="fas fa-box"></i>
         Produtos
       </a>
@@ -31,7 +30,7 @@
     <div class="clientes-section">
       <div class="section-header">
         <h2>Clientes</h2>
-        <button id="btnNovoCliente" class="btn btn-primary">+ Novo Cliente</button>
+        <button id="btnNovoCliente" class="btn btn-primary" onclick="openAddModal()">+ Novo Cliente</button>
       </div>
 
       <table id="clientesTable">
@@ -55,30 +54,55 @@
   </div>
 
   <!-- MODAL -->
-  <div id="clienteModal" class="modal">
+  <div id="clienteAddModal" class="modal">
     <div class="modal-content">
       <h2 id="modalTitle">Novo Cliente</h2>
       <form id="clienteForm">
-        <label for="nome">Nome</label>
-        <input type="text" id="nome" placeholder="Ex: Angela Santos" required>
+        <label for="nomeAdd">Nome</label>
+        <input type="text" id="nomeAdd" placeholder="Ex: Angela Santos" required>
 
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Ex: angela@gmail.com" required>
+        <label for="emailAdd">Email</label>
+        <input type="email" id="emailAdd" placeholder="Ex: angela@gmail.com" required>
 
-        <label for="telefone">Telefone</label>
-        <input type="text" id="telefone" placeholder="Ex: (11) 94837-5678">
+        <label for="telefoneAdd">Telefone</label>
+        <input type="text" id="telefoneAdd" placeholder="Ex: (11) 94837-5678">
 
-        <label for="endereco">Endereço</label>
-        <textarea id="endereco" placeholder="Ex: Rua Bras Cardoso 1234"></textarea>
+        <label for="enderecoAdd">Endereço</label>
+        <textarea id="enderecoAdd" placeholder="Ex: Rua Bras Cardoso 1234"></textarea>
 
         <div class="modal-actions">
-          <button type="button" id="btnCancel" class="btn btn-secondary">Cancelar</button>
-          <button type="submit" class="btn btn-success">Salvar</button>
+          <button type="button" id="btnCancel" class="btn btn-secondary" onclick="closeAddModal()">Cancelar</button>
+          <button type="submit" class="btn btn-success" onclick="addClient()">Salvar</button>
         </div>
       </form>
     </div>
   </div>
 
-  <script src="clientes.js"></script>
+  <div id="clienteEditModal" class="modal">
+    <div class="modal-content">
+      <h2 id="modalEditTitle">Editar Cliente</h2>
+      <form id="clienteEditForm">
+        <label for="nomeClientEdit">Nome</label>
+        <input type="text" id="nomeClientEdit" required>
+
+        <label for="emailClientEdit">Email</label>
+        <input type="email" id="emailClientEdit" required>
+
+        <label for="telefoneClientEdit">Telefone</label>
+        <input type="text" id="telefoneClientEdit">
+
+        <label for="enderecoClientEdit">Endereço</label>
+        <textarea id="enderecoClientEdit"></textarea>
+
+        <div class="modal-actions">
+          <button type="button" id="btnEditCancel" class="btn btn-secondary" onclick="closeEditModal()">Cancelar</button>
+          <button type="submit" class="btn btn-success" onclick="editClient()">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="assets/js/cliente/clienteApi.js"></script>
+  <script src="assets/js/cliente/clientes.js"></script>
 </body>
 </html>
