@@ -1,0 +1,128 @@
+@import "nav.css";
+@import "table.css";
+@import "modal.css";
+
+:root {
+    --bg-header: #ffffff;
+    --shadow-header: 0 4px 4px rgba(0, 0, 0, 0.05);
+
+    /* Main */
+
+    --bg-body-color: #f5f7f8;
+    --light-text: #ffffff;
+    --dark-text: #121826;
+    --bg-colored-buttons: #17a34b;
+    --bg-hover-colored-buttons: #22c55e;
+    --box-shadow-nav-button: 0 6px 10px rgba(23, 163, 75, 0.25);
+    --border-uncolored-buttons: #121826;
+    --bg-hover-uncolored-buttons: #121826;
+
+    /* table */
+
+    --bg-header-table: #eeeeee;
+    --bg-body-table: #ffffff;
+    --shadow-table: 0 0 2px rgba(0, 0, 0, 0.3);
+    --line-table: #e5e7eb;
+    --header-table-text: #595959;
+    --content-table-text: #757575;
+
+    /* Modal */
+    --bg-modal: rgba(0, 0, 0, 0.5);
+
+    /* Form */
+
+    --bg-form: #ffffff;
+    --shadow-form: 0 5px 25px rgba(0, 0, 0, 0.2);
+    --form-title: #121826;
+    --form-label: #595959;
+    --form-input-border: #c1c1c1;
+    --form-input-content: #121826;
+    --form-cancel-button-border: #121826;
+    --form-submit-button-bg: #17a34b;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-body-color);
+}
+
+.header-container {
+    background-color: var(--bg-header);
+    box-shadow: var(--shadow-header);
+    color: var(--dark-text);
+    padding: 40px 0;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.admin-panel {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.btn {
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.25s ease;
+}
+
+.btn-primary {
+    background-color: var(--bg-colored-buttons);
+    color: var(--light-text);
+}
+
+.btn-primary:hover {
+    background-color: var(--bg-hover-colored-buttons);
+}
+
+.btn-cancel {
+    background-color: transparent;
+    border: 1px solid var(--form-cancel-button-border);
+    color: var(--dark-text);
+}
+
+.btn-cancel:hover {
+    background-color: var(--bg-hover-uncolored-buttons);
+    color: var(--light-text);
+}
+
+.btn-success {
+    background-color: var(--form-submit-button-bg);
+    color: var(--light-text);
+}
+
+.btn-success:hover {
+    background-color: var(--bg-hover-colored-buttons);
+}

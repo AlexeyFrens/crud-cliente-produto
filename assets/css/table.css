@@ -1,0 +1,56 @@
+.table-container {
+    background-color: var(--bg-body-table);
+    box-shadow: var(--shadow-table);
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+}
+
+tbody tr {
+    border-bottom: 2px solid var(--line-table);
+}
+
+tbody tr:last-child {
+    border-bottom: none;
+}
+
+th,
+td {
+    text-align: center;
+    padding: 12px;
+}
+
+td {
+    color: var(--content-table-text);
+}
+
+th {
+    text-transform: uppercase;
+    color: var(--header-table-text);
+    font-size: 13px;
+    background-color: var(--bg-header-table);
+    border-bottom: 2px solid var(--line-table);
+}
+
+th:first-child {
+    border-top-left-radius: 10px;
+}
+
+th:last-child {
+    border-top-right-radius: 10px;
+}
+
+.no-data td{
+    text-align: center;
+    padding: 60px;
+}
+
+button.editar {
+    margin-right: 10px;
+}
+
+button.editar, button.deletar {
+    background: none;
+    border: none;
+    cursor: pointer;
+}

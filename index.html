@@ -5,24 +5,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Painel Administrador - Clientes</title>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
-  <link rel="stylesheet" href="assets/css/clientes.css">
+
+  <link rel="stylesheet" href="assets/css/global.css">
 </head>
 <body>
 
-  <div class="admin-panel">
-    <h1>Painel Administrador</h1>
+  <header class="header-container">
+    <div class="header-content">
+      <h1>Painel Administrador</h1>
+    </div>
+  </header>
 
+  <div class="admin-panel">
     <div class="navigation">
       <button class="nav-button active">
-        <i class="fas fa-users"></i>
+        <svg width="20" height="20" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 5C23.5875 5 26.5 7.9125 26.5 11.5C26.5 15.0875 23.5875 18 20 18C16.4125 18 13.5 15.0875 13.5 11.5C13.5 7.9125 16.4125 5 20 5ZM6 9.5C8.4875 9.5 10.5 11.5125 10.5 14C10.5 16.4875 8.4875 18.5 6 18.5C3.5125 18.5 1.5 16.4875 1.5 14C1.5 11.5125 3.5125 9.5 6 9.5ZM0 30C0 25.5812 3.58125 22 8 22C8.8 22 9.575 22.1187 10.3062 22.3375C8.25 24.6375 7 27.675 7 31V32C7 32.7125 7.15 33.3875 7.41875 34H2C0.89375 34 0 33.1063 0 32V30ZM32.5812 34C32.85 33.3875 33 32.7125 33 32V31C33 27.675 31.75 24.6375 29.6938 22.3375C30.425 22.1187 31.2 22 32 22C36.4188 22 40 25.5812 40 30V32C40 33.1063 39.1063 34 38 34H32.5812ZM29.5 14C29.5 11.5125 31.5125 9.5 34 9.5C36.4875 9.5 38.5 11.5125 38.5 14C38.5 16.4875 36.4875 18.5 34 18.5C31.5125 18.5 29.5 16.4875 29.5 14ZM10 31C10 25.475 14.475 21 20 21C25.525 21 30 25.475 30 31V32C30 33.1063 29.1063 34 28 34H12C10.8938 34 10 33.1063 10 32V31Z" fill="white"/>
+        </svg>
         Clientes
       </button>
       <a href="assets/html/product.html" class="nav-button">
-        <i class="fas fa-box"></i>
+        <svg width="20" height="20" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18.6113 36.375V20.7917L5 12.9167V26.9304C5 27.4304 5.12264 27.8935 5.36792 28.3196C5.61347 28.7454 5.95375 29.0833 6.38875 29.3333L18.6113 36.375ZM21.3888 36.375L33.6112 29.3333C34.0462 29.0833 34.3865 28.7454 34.6321 28.3196C34.8774 27.8935 35 27.4304 35 26.9304V12.8888L21.3888 20.7917V36.375ZM28.1529 13.6804L33.4862 10.5833L21.3888 3.625C20.9538 3.375 20.4908 3.25 20 3.25C19.5092 3.25 19.0463 3.375 18.6113 3.625L14.625 5.91667L28.1529 13.6804ZM20 18.4167L25.3471 15.3054L11.8333 7.52792L6.5 10.625L20 18.4167Z" fill="#121826"/>
+        </svg>
         Produtos
       </a>
     </div>
@@ -33,7 +38,7 @@
         <button id="btnNovoCliente" class="btn btn-primary" onclick="openAddModal()">+ Novo Cliente</button>
       </div>
 
-      <table id="clientesTable">
+      <table id="clientesTable" class="table-container">
         <thead>
           <tr>
             <th>ID</th>
@@ -46,7 +51,7 @@
         </thead>
         <tbody id="clientesTableBody">
           <tr class="no-data">
-            <td colspan="6">Nenhum cliente cadastrado</td>
+            <td colspan="6">Não há clientes cadastrados</td>
           </tr>
         </tbody>
       </table>
@@ -71,7 +76,7 @@
         <textarea id="enderecoAdd" placeholder="Ex: Rua Bras Cardoso 1234"></textarea>
 
         <div class="modal-actions">
-          <button type="button" id="btnCancel" class="btn btn-secondary" onclick="closeAddModal()">Cancelar</button>
+          <button type="button" id="btnCancel" class="btn btn-cancel" onclick="closeAddModal()">Cancelar</button>
           <button type="submit" class="btn btn-success" onclick="addClient()">Salvar</button>
         </div>
       </form>
@@ -95,7 +100,7 @@
         <textarea id="enderecoClientEdit"></textarea>
 
         <div class="modal-actions">
-          <button type="button" id="btnEditCancel" class="btn btn-secondary" onclick="closeEditModal()">Cancelar</button>
+          <button type="button" id="btnEditCancel" class="btn btn-cancel" onclick="closeEditModal()">Cancelar</button>
           <button type="submit" class="btn btn-success" onclick="editClient()">Salvar</button>
         </div>
       </form>
