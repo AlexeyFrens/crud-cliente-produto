@@ -31,7 +31,7 @@ const openEditModal = async (botao) => {
     const oldClient = await findClientById(idClient);
 
     if(oldClient){
-        modalEditName.value = oldClient.name;
+        modalEditName.value = oldClient.nome;
         modalEditEmail.value = oldClient.email;
         modalEditTelefone.value = oldClient.telefone;
         modalEditEndereco.value = oldClient.endereco;
@@ -47,7 +47,7 @@ const closeEditModal = () => {
 function addClient() {
 
     const newClient = {
-        name: modalAddName.value,
+        nome: modalAddName.value,
         email: modalAddEmail.value,
         telefone: modalAddTelefone.value,
         endereco: modalAddEndereco.value,
@@ -61,7 +61,7 @@ function editClient() {
     const idClient = currentEditClient;
 
     const updatedClient = {
-        name: modalEditName.value,
+        nome: modalEditName.value,
         email: modalEditEmail.value,
         telefone: modalEditTelefone.value,
         endereco: modalEditEndereco.value,
@@ -85,7 +85,7 @@ function excludeClient(button) {
             return `
             <tr>
                 <td>${item.id}</td>
-                <td>${item.name}</td>
+                <td>${item.nome}</td>
                 <td>${item.email}</td>
                 <td>${item.telefone}</td>
                 <td>${item.endereco}</td>
