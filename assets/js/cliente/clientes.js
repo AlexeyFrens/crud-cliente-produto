@@ -93,6 +93,10 @@ async function excludeClient(button) {
 
     if(clientData.length !== 0) {
         clientsTable.innerHTML = clientData.map((item) => {
+
+            const dateString = item.dataAtualizacao;
+            const data = new Date(dateString)
+
             return `
             <tr>
                 <td>${item.id}</td>
@@ -100,6 +104,7 @@ async function excludeClient(button) {
                 <td>${item.email}</td>
                 <td>${item.telefone}</td>
                 <td>${item.endereco}</td>
+                <td>${data.toLocaleString('pt-BR').replace(",", "")}</td>
                 <td>
                     <button class="editar" title="Editar" data-id=${item.id} onclick="openEditModal(this)">
                         <svg width="25" height="25" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
