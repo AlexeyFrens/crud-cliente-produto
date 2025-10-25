@@ -54,7 +54,6 @@ function addClient() {
     }
 
     createClient(newClient);
-    window.location.reload();
 }
 
 function editClient() {
@@ -68,13 +67,25 @@ function editClient() {
     }
 
     updateClient(idClient, updatedClient);
-    window.location.reload();
 }
 
-function excludeClient(button) {
+async function excludeClient(button) {
     const idClient = button.dataset.id;
-    deleteClient(idClient);
-    window.location.reload();
+
+    const result = await Swal.fire({
+        text: `Deseja realmente excluir o cliente com o ID: ${idClient}? Você não poderá reverter isso!`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Sim, excluir!',
+        cancelButtonText: 'Cancelar'
+    });
+
+    if(result.isConfirmed) {
+        deleteClient(idClient);
+        window.location.reload();
+    }
 }
 
 (async () => {
