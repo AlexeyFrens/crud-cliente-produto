@@ -28,7 +28,7 @@ const openEditModal = async (botao) => {
     const idProduct = botao.dataset.id;
 
     currentEditProduct = idProduct;
-    const oldProduct = await findById(idProduct);
+    const oldProduct = await findEntityById("products", idProduct);
 
     if(oldProduct){
         modalEditName.value = oldProduct.name;
@@ -53,8 +53,7 @@ function addProduct() {
         stock: modalAddStock.value,
     }
 
-    createProduct(newProduct);
-    window.location.reload();
+    createEntity("products", newProduct);
 }
 
 function editProduct() {
@@ -67,18 +66,30 @@ function editProduct() {
         stock: modalEditStock.value,
     }
 
-    updateProduct(idProduct, updatedProduct);
-    window.location.reload();
+    updateEntity("products", idProduct, updatedProduct);
 }
 
-function excludeProduct(button) {
+async function excludeProduct(button) {
     const idProduct = button.dataset.id;
-    deleteProduct(idProduct);
-    window.location.reload();
+
+    const result = await Swal.fire({
+        text: `Deseja realmente excluir o cliente com o ID: ${idClient}? Você não poderá reverter isso!`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Sim, excluir!',
+        cancelButtonText: 'Cancelar'
+    });
+
+    if(result.isConfirmed) {
+        deleteEntity("products", idProduct);
+        window.location.reload();
+    }
 }
 
 (async () => {
-   const productData = await loadProducts();
+   const productData = await loadEntities("products");
 
    if(productData.length !== 0) {
        productTable.innerHTML = productData.map((item) => {

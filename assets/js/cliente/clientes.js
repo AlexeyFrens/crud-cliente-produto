@@ -28,7 +28,7 @@ const openEditModal = async (botao) => {
     const idClient = botao.dataset.id;
 
     currentEditClient = idClient;
-    const oldClient = await findClientById(idClient);
+    const oldClient = await findEntityById("clientes", idClient);
 
     if(oldClient){
         modalEditName.value = oldClient.nome;
@@ -53,7 +53,7 @@ function addClient() {
         endereco: modalAddEndereco.value,
     }
 
-    createClient(newClient);
+    createEntity("clientes", newClient);
 }
 
 function editClient() {
@@ -66,7 +66,7 @@ function editClient() {
         endereco: modalEditEndereco.value,
     }
 
-    updateClient(idClient, updatedClient);
+    updateEntity("clientes", idClient, updatedClient);
 }
 
 async function excludeClient(button) {
@@ -83,13 +83,13 @@ async function excludeClient(button) {
     });
 
     if(result.isConfirmed) {
-        deleteClient(idClient);
+        deleteEntity("clientes", idClient);
         window.location.reload();
     }
 }
 
 (async () => {
-    const clientData = await loadClients();
+    const clientData = await loadEntities("clientes");
 
     if(clientData.length !== 0) {
         clientsTable.innerHTML = clientData.map((item) => {
