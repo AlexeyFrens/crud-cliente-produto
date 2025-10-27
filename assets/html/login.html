@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema - Login</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    .header-container {
+      background-color: #121826;
+      color: white;
+      padding: 15px 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+
+
+    .header-content h1 {
+      font-size: 24px;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 30px;
+    }
+
+    .form-title {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #121826;
+      font-size: 22px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    .btn {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background-color: #28a745;
+      color: white;
+      width: 100%;
+    }
+
+    .btn-primary:hover {
+      background-color: #218838;
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+
+    .form-switch {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .form-switch a {
+      color: #28a745;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .form-switch a:hover {
+      text-decoration: underline;
+    }
+
+    .user-type {
+      display: flex;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .user-type-option {
+      flex: 1;
+      text-align: center;
+      padding: 10px;
+      cursor: pointer;
+      background-color: #f9f9f9;
+    }
+
+    /* Estilo para os radio buttons ocultos */
+    .radio-hidden {
+      display: none;
+    }
+
+    /* Mostrar/ocultar formulários baseado nos radio buttons */
+    #show-login:checked ~ .container #loginForm,
+    #show-register:checked ~ .container #registerForm {
+      display: block;
+    }
+
+    #show-login:checked ~ .container #registerForm,
+    #show-register:checked ~ .container #loginForm {
+      display: none;
+    }
+
+    /* Estilo para os radio buttons de tipo de usuário no login */
+    #user-type-user:checked ~ .user-type .user-type-option[for="user-type-user"],
+    #user-type-admin:checked ~ .user-type .user-type-option[for="user-type-admin"] {
+      background-color: #28a745;
+      color: white;
+    }
+
+    /* Estilo para os radio buttons de tipo de usuário no cadastro */
+    #user-type-user-register:checked ~ .user-type .user-type-option[for="user-type-user-register"],
+    #user-type-admin-register:checked ~ .user-type .user-type-option[for="user-type-admin-register"] {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .link-label {
+      color: #28a745;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .link-label:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Radio buttons para controlar qual formulário mostrar -->
+  <input type="radio" name="form-selector" id="show-login" class="radio-hidden" checked>
+  <input type="radio" name="form-selector" id="show-register" class="radio-hidden">
+
+  <header class="header-container">
+    <div class="header-content">
+      <h1>Sistema</h1>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Formulário de Login -->
+    <div id="loginForm">
+      <h2 class="form-title">Login</h2>
+      
+      <!-- Radio buttons para tipo de usuário -->
+      <input type="radio" name="user-type" id="user-type-user" class="radio-hidden" checked>
+      <input type="radio" name="user-type" id="user-type-admin" class="radio-hidden">
+      
+      <div class="user-type">
+        <label for="user-type-user" class="user-type-option">Usuário</label>
+        <label for="user-type-admin" class="user-type-option">Administrador</label>
+      </div>
+      
+      <form action="admin-panel.html" method="get">
+        <div class="form-group">
+          <label for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" name="email" placeholder="Ex: usuario@exemplo.com" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="loginPassword">Senha</label>
+          <input type="password" id="loginPassword" name="password" placeholder="Digite sua senha" required>
+        </div>
+        
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Entrar</button>
+        </div>
+      </form>
+      
+      <div class="form-switch">
+        Não tem uma conta? <label for="show-register" class="link-label">Cadastre-se</label>
+      </div>
+    </div>
+    
+    <!-- Formulário de Cadastro -->
+    <div id="registerForm">
+      <h2 class="form-title">Cadastro</h2>
+      
+      <!-- Radio buttons para tipo de usuário -->
+      <input type="radio" name="user-type-register" id="user-type-user-register" class="radio-hidden" checked>
+      <input type="radio" name="user-type-register" id="user-type-admin-register" class="radio-hidden">
+      
+      <div class="user-type">
+        <label for="user-type-user-register" class="user-type-option">Usuário</label>
+        <label for="user-type-admin-register" class="user-type-option">Administrador</label>
+      </div>
+      
+      <form action="login-success.html" method="get">
+        <div class="form-group">
+          <label for="registerName">Nome</label>
+          <input type="text" id="registerName" name="name" placeholder="Ex: João Silva" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="registerEmail">Email</label>
+          <input type="email" id="registerEmail" name="email" placeholder="Ex: joao@exemplo.com" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="registerPassword">Senha</label>
+          <input type="password" id="registerPassword" name="password" placeholder="Crie uma senha" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="registerConfirmPassword">Confirmar Senha</label>
+          <input type="password" id="registerConfirmPassword" name="confirmPassword" placeholder="Digite a senha novamente" required>
+        </div>
+        
+        <div class="form-actions">
+          <label for="show-login" class="btn btn-cancel">Voltar</label>
+          <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </div>
+      </form>
+      
+      <div class="form-switch">
+        Já tem uma conta? <label for="show-login" class="link-label">Faça login</label>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
