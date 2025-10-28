@@ -4,6 +4,7 @@
     width: 100%;
     border-collapse: collapse;
     border-radius: 10px;
+    max-width: 1160px;
 }
 
 tbody tr {
@@ -22,6 +23,7 @@ td {
 
 td {
     color: var(--content-table-text);
+    overflow-wrap: anywhere;
 }
 
 th {
