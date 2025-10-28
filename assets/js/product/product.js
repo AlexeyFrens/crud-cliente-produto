@@ -28,13 +28,13 @@ const openEditModal = async (botao) => {
     const idProduct = botao.dataset.id;
 
     currentEditProduct = idProduct;
-    const oldProduct = await findEntityById("products", idProduct);
+    const oldProduct = await findEntityById("produtos", idProduct);
 
     if(oldProduct){
-        modalEditName.value = oldProduct.name;
-        modalEditDescription.value = oldProduct.description;
-        modalEditPrice.value = oldProduct.price;
-        modalEditStock.value = oldProduct.stock;
+        modalEditName.value = oldProduct.nome;
+        modalEditDescription.value = oldProduct.descricao;
+        modalEditPrice.value = oldProduct.preco;
+        modalEditStock.value = oldProduct.quantidade;
     }
 }
 
@@ -47,33 +47,33 @@ const closeEditModal = () => {
 function addProduct() {
 
     const newProduct = {
-        name: modalAddName.value,
-        description: modalAddDescription.value,
-        price: modalAddPrice.value,
-        stock: modalAddStock.value,
+        nome: modalAddName.value,
+        descricao: modalAddDescription.value,
+        preco: modalAddPrice.value,
+        quantidade: modalAddStock.value,
     }
 
-    createEntity("products", newProduct);
+    createEntity("produtos", newProduct);
 }
 
 function editProduct() {
     const idProduct = currentEditProduct;
 
     const updatedProduct = {
-        name: modalEditName.value,
-        description: modalEditDescription.value,
-        price: modalEditPrice.value,
-        stock: modalEditStock.value,
+        nome: modalEditName.value,
+        descricao: modalEditDescription.value,
+        preco: modalEditPrice.value,
+        quantidade: modalEditStock.value,
     }
 
-    updateEntity("products", idProduct, updatedProduct);
+    updateEntity("produtos", idProduct, updatedProduct);
 }
 
 async function excludeProduct(button) {
     const idProduct = button.dataset.id;
 
     const result = await Swal.fire({
-        text: `Deseja realmente excluir o cliente com o ID: ${idClient}? Você não poderá reverter isso!`,
+        text: `Deseja realmente excluir o produto com o ID: ${idProduct}? Você não poderá reverter isso!`,
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#d33',
@@ -83,23 +83,28 @@ async function excludeProduct(button) {
     });
 
     if(result.isConfirmed) {
-        deleteEntity("products", idProduct);
+        deleteEntity("produtos", idProduct);
         window.location.reload();
     }
 }
 
 (async () => {
-   const productData = await loadEntities("products");
+   const productData = await loadEntities("produtos");
+
 
    if(productData.length !== 0) {
        productTable.innerHTML = productData.map((item) => {
+            const dateString = item.dataAtualizacao;
+            const data = new Date(dateString);
+
            return `
             <tr>
                 <td>${item.id}</td>
-                <td>${item.name}</td>
-                <td>${item.description}</td>
-                <td>${item.price}</td>
-                <td>${item.stock}</td>
+                <td>${item.nome}</td>
+                <td>${item.descricao}</td>
+                <td>${item.preco}</td>
+                <td>${item.quantidade}</td>
+                <td>${data.toLocaleString('pt-BR').replace(",", "")}</td>
                 <td>
                     <button class="editar" title="Editar" data-id=${item.id} onclick="openEditModal(this)">
                         <svg width="25" height="25" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
