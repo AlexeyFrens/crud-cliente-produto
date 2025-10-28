@@ -170,95 +170,93 @@
   </style>
 </head>
 <body>
-  <!-- Radio buttons para controlar qual formulário mostrar -->
-  <input type="radio" name="form-selector" id="show-login" class="radio-hidden" checked>
-  <input type="radio" name="form-selector" id="show-register" class="radio-hidden">
+<input type="radio" name="form-selector" id="show-login" class="radio-hidden" checked>
+<input type="radio" name="form-selector" id="show-register" class="radio-hidden">
 
-  <header class="header-container">
-    <div class="header-content">
-      <h1>Sistema</h1>
-    </div>
-  </header>
+<header class="header-container">
+  <div class="header-content">
+    <h1>Sistema</h1>
+  </div>
+</header>
 
-  <div class="container">
-    <!-- Formulário de Login -->
-    <div id="loginForm">
-      <h2 class="form-title">Login</h2>
-      
-      <!-- Radio buttons para tipo de usuário -->
-      <input type="radio" name="user-type" id="user-type-user" class="radio-hidden" checked>
-      <input type="radio" name="user-type" id="user-type-admin" class="radio-hidden">
-      
-      <div class="user-type">
-        <label for="user-type-user" class="user-type-option">Usuário</label>
-        <label for="user-type-admin" class="user-type-option">Administrador</label>
-      </div>
-      
-      <form action="admin-panel.html" method="get">
-        <div class="form-group">
-          <label for="loginEmail">Email</label>
-          <input type="email" id="loginEmail" name="email" placeholder="Ex: usuario@exemplo.com" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="loginPassword">Senha</label>
-          <input type="password" id="loginPassword" name="password" placeholder="Digite sua senha" required>
-        </div>
-        
-        <div class="form-actions">
-          <button type="submit" class="btn btn-primary">Entrar</button>
-        </div>
-      </form>
-      
-      <div class="form-switch">
-        Não tem uma conta? <label for="show-register" class="link-label">Cadastre-se</label>
-      </div>
+<div class="container">
+  <div id="loginForm">
+    <h2 class="form-title">Login</h2>
+
+    <input type="radio" name="user-type" id="user-type-user" class="radio-hidden" checked>
+    <input type="radio" name="user-type" id="user-type-admin" class="radio-hidden">
+
+    <div class="user-type">
+      <label for="user-type-user" class="user-type-option">Usuário</label>
+      <label for="user-type-admin" class="user-type-option">Administrador</label>
     </div>
-    
-    <!-- Formulário de Cadastro -->
-    <div id="registerForm">
-      <h2 class="form-title">Cadastro</h2>
-      
-      <!-- Radio buttons para tipo de usuário -->
-      <input type="radio" name="user-type-register" id="user-type-user-register" class="radio-hidden" checked>
-      <input type="radio" name="user-type-register" id="user-type-admin-register" class="radio-hidden">
-      
-      <div class="user-type">
-        <label for="user-type-user-register" class="user-type-option">Usuário</label>
-        <label for="user-type-admin-register" class="user-type-option">Administrador</label>
+
+    <form id="login-form-element" action="admin-panel.html" method="get">
+      <div class="form-group">
+        <label for="loginEmail">Email</label>
+        <input type="email" id="loginEmail" name="email" placeholder="Ex: usuario@exemplo.com" required>
       </div>
-      
-      <form action="login-success.html" method="get">
-        <div class="form-group">
-          <label for="registerName">Nome</label>
-          <input type="text" id="registerName" name="name" placeholder="Ex: João Silva" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="registerEmail">Email</label>
-          <input type="email" id="registerEmail" name="email" placeholder="Ex: joao@exemplo.com" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="registerPassword">Senha</label>
-          <input type="password" id="registerPassword" name="password" placeholder="Crie uma senha" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="registerConfirmPassword">Confirmar Senha</label>
-          <input type="password" id="registerConfirmPassword" name="confirmPassword" placeholder="Digite a senha novamente" required>
-        </div>
-        
-        <div class="form-actions">
-          <label for="show-login" class="btn btn-cancel">Voltar</label>
-          <button type="submit" class="btn btn-primary">Cadastrar</button>
-        </div>
-      </form>
-      
-      <div class="form-switch">
-        Já tem uma conta? <label for="show-login" class="link-label">Faça login</label>
+
+      <div class="form-group">
+        <label for="loginPassword">Senha</label>
+        <input type="password" id="loginPassword" name="password" placeholder="Digite sua senha" required>
       </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Entrar</button>
+      </div>
+    </form>
+
+    <div class="form-switch">
+      Não tem uma conta? <label for="show-register" class="link-label">Cadastre-se</label>
     </div>
   </div>
+
+  <div id="registerForm">
+    <h2 class="form-title">Cadastro</h2>
+
+    <input type="radio" name="user-type-register" id="user-type-user-register" class="radio-hidden" checked>
+    <input type="radio" name="user-type-register" id="user-type-admin-register" class="radio-hidden">
+
+    <div class="user-type">
+      <label for="user-type-user-register" class="user-type-option">Usuário</label>
+      <label for="user-type-admin-register" class="user-type-option">Administrador</label>
+    </div>
+
+    <form id="register-form-element" action="login-success.html" method="get">
+      <div class="form-group">
+        <label for="registerName">Nome</label>
+        <input type="text" id="registerName" name="name" placeholder="Ex: João Silva" required>
+      </div>
+
+      <div class="form-group">
+        <label for="registerEmail">Email</label>
+        <input type="email" id="registerEmail" name="email" placeholder="Ex: joao@exemplo.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="registerPassword">Senha</label>
+        <input type="password" id="registerPassword" name="password" placeholder="Crie uma senha" required>
+      </div>
+
+      <div class="form-group">
+        <label for="registerConfirmPassword">Confirmar Senha</label>
+        <input type="password" id="registerConfirmPassword" name="confirmPassword" placeholder="Digite a senha novamente" required>
+      </div>
+
+      <div class="form-actions">
+        <label for="show-login" class="btn btn-cancel">Voltar</label>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+      </div>
+    </form>
+
+    <div class="form-switch">
+      Já tem uma conta? <label for="show-login" class="link-label">Faça login</label>
+    </div>
+  </div>
+</div>
+
+<script src="/crud-cliente-produto/assets/js/login/login.js" defer></script>
+
 </body>
 </html>
